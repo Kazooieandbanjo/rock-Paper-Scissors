@@ -16,32 +16,46 @@ function getComputerChoice() {
         computerChoice = scissor; //if randomNumber  is 3 then it is scissor
         return computerChoice;
     }
-    return computerChoice;
 }
 
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase(); // make player choice case insensitive
-    computerSelection = computerSelection.toLowerCase(); // make player choice case insensitive
-    console.log(computerSelection);
+    computerSelection = computerSelection.toLowerCase(); // make computer choice case insensitive
+    let result;
 
     if (playerSelection === computerSelection) {
-        console.log("This is a tie")
+        result = "This is a tie";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        console.log("You lose! paper beats rock");
+        result = "You lose! paper beats rock";
     } else if (playerSelection === "rock" && computerSelection === "scissor") {
-        console.log("You win! rock beats scissor");
+        result = "You win! rock beats scissor";
     } else if (playerSelection === "scissor" && computerSelection === "paper") {
-        console.log("You win! scissor beats paper");
+        result = "You win! scissor beats paper";
     } else if (playerSelection === "scissor" && computerSelection === "rock") {
-        console.log("You lose! rock beats scissor");
+        result = "You lose! rock beats scissor";
     } else if (playerSelection === "paper" && computerSelection == "rock") {
-        console.log("You win! paper beats rock");
+        result = "You win! paper beats rock";
     } else {
-        console.log("You lose! scissor beats paper")
+        result = "You lose! scissor beats paper";
     }
+    return result;
 }
 
-const playerSelection = prompt("Please choose one of the following choice Paper, Rock, or Scissors ")
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function playGame() {
+
+    for (let i = 1; i <= 5; i++) {
+        const playerSelection = prompt("Please choose one of the following choice Paper, Rock, or Scissors ");// placed inside so it will prompt for 5 times
+        const computerSelection = getComputerChoice(); // placed inside so it will computer input for 5 times
+        console.log(playRound(playerSelection, computerSelection))
+    }
+
+
+}
+
+
+
+//onst playerSelection = prompt("Please choose one of the following choice Paper, Rock, or Scissors ");
+//const computerSelection = getComputerChoice();
+//console.log(playRound(playerSelection, computerSelection));
+console.log(playGame());
